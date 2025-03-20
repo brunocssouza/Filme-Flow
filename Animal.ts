@@ -1,12 +1,13 @@
 import { Recurso } from "./Recurso";
 
-export abstract class Animal {  // Abstract!!! Explicação na linha 109.
+export class Animal {
     protected nome:string;
     protected especie:string;
     protected fome:boolean;
     protected sede:boolean;
     protected alimentacao:string;
     protected habito:string; // No infinitivo!!!! (ex: "correr na grama", "pular e perseguir um pássaro")
+    protected som:string;
 
     // STATIC: Elemento PERTENCE A CLASSE, não aos objetos. A variável 'inventario' pode ser acesada diretamente por fora, NÃO SENDO NECESSÁRIO INICIALIZAÇÃO
     // DE INSTANCIAS, utilizando a própria classe como objeto: Animal.inventario. O 'inventario' foi criado como STATIC pois a premissa é que um animal, 
@@ -14,13 +15,14 @@ export abstract class Animal {  // Abstract!!! Explicação na linha 109.
     // necessário a criação de um inventário para cada um dos animais, por compartilharem dos mesmos itens.
     private static inventario:Recurso[] = [];
 
-    constructor(nomeRecebido:string, especieRecebida:string, fomeRecebida:boolean, sedeRecebida:boolean, alimentacaoRecebida:string, habitoRecebido:string) {
+    constructor(nomeRecebido:string, especieRecebida:string, fomeRecebida:boolean, sedeRecebida:boolean, alimentacaoRecebida:string, habitoRecebido:string, somRecebido:string) {
         this.nome = nomeRecebido;
         this.especie = especieRecebida;
         this.fome = fomeRecebida;
         this.sede = sedeRecebida;
         this.alimentacao = alimentacaoRecebida;
         this.habito = habitoRecebido;
+        this.som = somRecebido
     }
 
     // Métodos Setters
@@ -45,6 +47,9 @@ export abstract class Animal {  // Abstract!!! Explicação na linha 109.
     public setHabito(habitoRecebido:string):void {
         this.alimentacao = habitoRecebido;
     }
+    public setSom(somRecebido:string):void  {
+        this.som = somRecebido;
+    }
 
     // Métodos Getters
     public static getInventario():Recurso[] {
@@ -67,6 +72,9 @@ export abstract class Animal {  // Abstract!!! Explicação na linha 109.
     }
     public getHabito():string {
         return this.habito;
+    }
+    public getSom():string {
+        return this.som;
     }
 
     // Métodos diversos
@@ -105,11 +113,9 @@ export abstract class Animal {  // Abstract!!! Explicação na linha 109.
         }
     }
 
-
-    // Abstract: É bem fácil! Simplesmente OBRIGA subclasses á terem seus próprios métodos 'emitirSom()'. Só isso.
-    // Caso a subclasse não venha a implementar seu próprio, vai mostrar um sublinhado vermelho, como se tivesse um erro.
-    // (Assim, também, a gente consegue reutilizar o mesmo nome de método. Nao precisando criar um 'emitirSomMamifero')
-    public abstract emitirSom():void;
+    public emitirSom():string {
+        return `> ${this.nome} (${this.especie}): ${this.som.toUpperCase()}!`;
+    };
 
     public mover(): void {
         console.log(`> ${this.nome} (${this.especie}) tenta correr...`)

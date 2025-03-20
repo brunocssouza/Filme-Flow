@@ -3,17 +3,15 @@ import { Animal } from "./Animal";
 export class Mamifero extends Animal {
     private pelos:string;
     private mamas:number;
-    private som:string;
     private static mamiferos:Mamifero[] = [];   // Vai armazenar todo mamífero criado já instanciado. Beneficios do static-array 'mamíferos':
     // 1. Tira a necessidade de objetos Mamífero serem instanciados no arquivo principal (main.ts); tornando-o mais limpo.
     // 2. Qualquer mamífero criado pode ser acessado a partir de uma única variável array.
     // 3. Pode ser acessado diretamente pela classe, não necessitando instanciar um objeto Mamifero para tal.
 
-    constructor(nomeRecebido:string, especieRecebida:string, fomeRecebida:boolean, sedeRecebida:boolean, alimentacaoRecebida:string, habitoRecebido:string, pelosRecebidos:string, mamasRecebidas:number, somRecebido:string) {
-        super(nomeRecebido, especieRecebida, fomeRecebida, sedeRecebida, alimentacaoRecebida, habitoRecebido);
+    constructor(nomeRecebido:string, especieRecebida:string, fomeRecebida:boolean, sedeRecebida:boolean, alimentacaoRecebida:string, habitoRecebido:string, pelosRecebidos:string, mamasRecebidas:number, somRecebido:string="Nenhum") {
+        super(nomeRecebido, especieRecebida, fomeRecebida, sedeRecebida, alimentacaoRecebida, habitoRecebido, somRecebido);
         this.pelos = pelosRecebidos;
         this.mamas = mamasRecebidas;
-        this.som = somRecebido;
         Mamifero.mamiferos.push(this)   // Armazena o próprio Mamífero à ser criado no array 'mamiferos'.
     }
 
@@ -46,10 +44,6 @@ export class Mamifero extends Animal {
     }
 
     // Métodos diversos
-    public emitirSom():string {
-        return `> ${this.nome} (${this.especie}): ${this.som.toUpperCase()}!`;
-    }
-
     public amamentar():void {
         console.log(`> ${this.nome} (${this.especie}) quer amamentar seus filhotes...`)
         if (this.fome) {
@@ -82,6 +76,7 @@ const mamifero1 = new Mamifero(
     4,                                              //qtdeMamas
     "Ahn Ahn"                                       //onomatopeia
 );
+
 const mamifero2 = new Mamifero(
     "Pão",
     "Cachorro", 
