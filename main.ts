@@ -13,7 +13,10 @@ function interagir(animalRecebido1: Animal, animalRecebido2: Animal):void {     
 }
 interagir(Mamifero.getMamiferos()[0], Mamifero.getMamiferos()[1]);
 
-// Desafio
+
+
+
+// Desafio é daqui em diante
 function indexAleatorio(listaRecebida: Mamifero[] | Recurso[]) {
     return Math.floor(Math.random() * listaRecebida.length);
 }
