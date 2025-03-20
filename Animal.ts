@@ -1,6 +1,6 @@
 import { Recurso } from "./Recurso";
 
-export abstract class Animal {  // Abstract!!! Explica  na linha 109.
+export abstract class Animal {  // Abstract!!! Explicação na linha 109.
     protected nome:string;
     protected especie:string;
     protected fome:boolean;
