@@ -114,8 +114,12 @@ export class Animal {
     }
 
     public emitirSom():string {
-        return `> ${this.nome} (${this.especie}): ${this.som.toUpperCase()}!`;
-    };
+        if (this.som == "Nenhum") {
+            return "";
+        } else {
+            return `> ${this.nome} (${this.especie}): ${this.som.toUpperCase()}!`;
+        }
+    }
 
     public mover(): void {
         console.log(`> ${this.nome} (${this.especie}) tenta correr...`)

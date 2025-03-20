@@ -19,13 +19,17 @@ function indexAleatorio(listaRecebida: Mamifero[] | Recurso[]) {
 }
 
 function acoes(mamiferos:Mamifero[]) {
+    // Tenta procurar recurso...
     const recursos:Recurso[] = Recurso.getRecursos();
     mamiferos[indexAleatorio(mamiferos)].usarRecurso(recursos[indexAleatorio(recursos)]);
 
+    // Tenta se mover...
     mamiferos[indexAleatorio(mamiferos)].mover();
 
+    // Tenta amamentar...
     mamiferos[indexAleatorio(mamiferos)].amamentar();
 
+    // Tenta crescer/diminuir pelo...
     mamiferos[indexAleatorio(mamiferos)].mudarPelo();
 }
 
@@ -45,7 +49,7 @@ function simular(qtde:number = 10) {
         acoes(mamiferos);
     }
 }
-simular(5);
+simular(5); // Quantidade de simulações
 
 console.log(`========== RECURSOS OBTIDOS ==========`);
 console.table(Animal.getInventario(), ["nome"]);
