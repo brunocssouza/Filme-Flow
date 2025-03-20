@@ -45,7 +45,7 @@ export class Animal {
         this.alimentacao = alimentacaoRecebida;
     }
     public setHabito(habitoRecebido:string):void {
-        this.alimentacao = habitoRecebido;
+        this.habito = habitoRecebido;
     }
     public setSom(somRecebido:string):void  {
         this.som = somRecebido;
