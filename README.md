@@ -8,7 +8,7 @@
   
   - DESAFIO: Criar um ambiente de simulação com um loop que simule o tempo e a interação dos animais com os recursos(use a função interagir para simular os encontros dos animais).   
 
-# DIAGRAMA DE CLASSES
+# CLASS DIAGRAMS
 https://lucid.app/lucidchart/808efadd-39b8-4072-b8e6-2accc3300fe4/edit?viewport_loc=406%2C-261%2C1853%2C698%2CHWEp-vi-RSFO&invitationId=inv_c3dfec66-bab6-4105-be2c-1f5f82c835b8
 ![Diagrama de Classes](ClassDiagram.png)
 
